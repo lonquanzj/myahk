@@ -1,4 +1,4 @@
-# myahk
+﻿# myahk
 工作中的AHK脚本
 
 # 使用方法

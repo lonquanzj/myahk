@@ -1,4 +1,5 @@
-﻿;#	Win (Windows 徽标键). 在 v1.0.48.01+, 对于 Windows Vista 及以上版本, 包含 Windows 键的热键 (例如 #a) 会等待 Windows 键被释放后才发送任何包含 "L" 键击的文本. 这样避免了这种热键中的 Send 锁定 PC。这种行为适用于除 SendPlay (这里不需要) 和 盲从模式 外的所有发送模式.
+﻿;热键使用说明 https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm
+;键盘映射列表 https://www.autoahk.com/help/autohotkey/zh-cn/docs/KeyList.htm
 ;!	Alt
 ;^	ctrl
 ;+	Shift
@@ -8,6 +9,7 @@
 ;my-capslock.ahk必须放在第一个，否则会失效
 #Include my-capslock.ahk
 #Include autoStrings.ahk
+#Include notebookControl.ahk
 
 !+r::Reload    ; reload 当前脚本
 
@@ -55,6 +57,11 @@ Return
 
 !+z::
 ExeName :="C:\Users\percy\AppData\Local\Obsidian\Obsidian.exe"
+WinConTrolByExeName(ExeName)
+Return
+
+!+a::
+ExeName :="C:\Program Files\BookxSoftware\BookxNote Pro\BookxNotePro.exe"
 WinConTrolByExeName(ExeName)
 Return
 
