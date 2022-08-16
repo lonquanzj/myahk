@@ -1,9 +1,5 @@
 ;将粘贴板中的ip地址提取出来
 
-#SingleInstance, Force
-SendMode Input
-SetWorkingDir, %A_ScriptDir%
-
 
 str =
 (
@@ -21,6 +17,6 @@ loop, {
 	Pos:=Found_Pos+1 ;set next Position to start search
 	if not obj ;if not found stop looping
 		break ;didn't find so break loop
-	IpList.=obj.1 "`n" ;add found values to PID variable to display later
+	IpList.=obj.1 "`n" ;add found values to IpList variable to display later
 }
 Clipboard = %IpList%

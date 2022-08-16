@@ -11,6 +11,10 @@
 #Include autoStrings.ahk
 #Include notebookControl.ahk
 
+#SingleInstance, Force
+SendMode Input
+SetWorkingDir, %A_ScriptDir%
+
 !+r::Reload    ; reload 当前脚本
 
 ;update 2022-7-3 优化winactive函数，改为官方推荐函数

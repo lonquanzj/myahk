@@ -7,7 +7,7 @@
 
 ## 打开percy.ahk
 
-## 设置开始自启
+## 设置开始自启 
 Win+R 
 执行 shell:startup 打开开机自启目录
 
