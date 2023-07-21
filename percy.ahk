@@ -1,4 +1,4 @@
-﻿;热键使用说明 https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm
+;热键使用说明 https://www.autoahk.com/help/autohotkey/zh-cn/docs/Hotkeys.htm
 ;键盘映射列表 https://www.autoahk.com/help/autohotkey/zh-cn/docs/KeyList.htm
 ;!	Alt
 ;^	ctrl
@@ -34,33 +34,51 @@ WinConTrolByExeName(ExeName)
     Return
 }
 
-!+w::    ; 打开/最小化/激活TC
-ExeName := "C:\Users\percy\AppData\Local\TotalCMD64\Totalcmd64.exe"
-WinConTrolByExeName(ExeName)
+;update 2023-7-21 新增class的封装函数，因部分程序无法通过exe文件
+;封装成函数
+;函数功能：如果窗口不存在，则启动程序；如果窗口未激活，则激活；如果窗口激活，则最小化窗口
+WinConTrolByAhkClass(ClassName, EexName)
+{
+    if not WinExist("ahk_class" ClassName)
+        Run, %EexName%
+    Else
+    {
+        if not WinActive()
+            WinActivate
+        else
+            WinMinimize
+    }
+    Return
+}
+
+!+w::    ; 打开/最小化/激活WPS
+ExeName := "C:\Users\frank\AppData\Local\Kingsoft\WPS Office\11.1.0.14309\office6\wps.exe"
+ClassName := "OpusApp"
+WinConTrolByAhkClass(ClassName,ExeName)
 Return
 
 !+c::
-ExeName := "C:\Users\percy\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+ExeName := "C:\Program Files\Microsoft VS Code\Code.exe"
 WinConTrolByExeName(ExeName)
 Return
 
 !+d::
-ExeName := "C:\Program Files\Microsoft Office\root\Office16\ONENOTE.EXE"
+ExeName := "C:\Program Files (x86)\Microsoft Office\root\Office16\ONENOTE.EXE"
 WinConTrolByExeName(ExeName)
 Return
 
 !+x::
-ExeName := "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe"
+ExeName := "C:\Program Files (x86)\NeatReader\NeatReader.exe"
 WinConTrolByExeName(ExeName)
 Return
 
 !+e::
-ExeName := "C:\Program Files\Notepad++\notepad++.exe"
+ExeName := "C:\Program Files\Notepad--\notepad--.exe"
 WinConTrolByExeName(ExeName)
 Return
 
 !+z::
-ExeName :="C:\Users\percy\AppData\Local\Obsidian\Obsidian.exe"
+ExeName :="C:\Program Files\AurallySound\Song Master.exe"
 WinConTrolByExeName(ExeName)
 Return
 
@@ -68,6 +86,11 @@ Return
 ExeName :="C:\Program Files\BookxSoftware\BookxNote Pro\BookxNotePro.exe"
 WinConTrolByExeName(ExeName)
 Return
+
+;!+q::
+;ExeName :="C:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
+;WinConTrolByExeName(ExeName)
+;Return
 
 ;调试代码
 !+b::
