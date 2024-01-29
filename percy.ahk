@@ -52,7 +52,7 @@ WinConTrolByAhkClass(ClassName, EexName)
 }
 
 !+w::    ; 打开/最小化/激活WPS
-ExeName := "C:\Users\frank\AppData\Local\Kingsoft\WPS Office\11.1.0.14309\office6\wps.exe"
+ExeName := "C:\Users\frank\AppData\Local\Kingsoft\WPS Office\ksolaunch.exe"
 ClassName := "OpusApp"
 WinConTrolByAhkClass(ClassName,ExeName)
 Return
@@ -68,7 +68,7 @@ WinConTrolByExeName(ExeName)
 Return
 
 !+x::
-ExeName := "C:\Program Files (x86)\NeatReader\NeatReader.exe"
+ExeName := "C:\Program Files (x86)\Mobatek\MobaXterm\MobaXterm.exe"
 WinConTrolByExeName(ExeName)
 Return
 
@@ -83,14 +83,21 @@ WinConTrolByExeName(ExeName)
 Return
 
 !+a::
-ExeName :="C:\Program Files\BookxSoftware\BookxNote Pro\BookxNotePro.exe"
+ExeName :="C:\Program Files\Billfish\Billfish.exe"
+CLassName :="Qt5158QWindowIcon"
+WinConTrolByAhkClass(ClassName,ExeName)
+Return
+
+!+n::
+ExeName :="C:\Program Files (x86)\NeatReader\NeatReader.exe"
 WinConTrolByExeName(ExeName)
 Return
 
-;!+q::
-;ExeName :="C:\Program Files (x86)\Tencent\WeChat\WeChat.exe"
-;WinConTrolByExeName(ExeName)
-;Return
+!+q::
+ExeName :="C:\Users\frank\AppData\Local\TotalCMD64\TotalCMD64.exe"
+CLassName :="TTOTAL_CMD"
+WinConTrolByAhkClass(ClassName,ExeName)
+Return
 
 ;调试代码
 !+b::

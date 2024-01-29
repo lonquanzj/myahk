@@ -10,10 +10,14 @@ FormatTime, CurrentDateTime,, yyyy-MM-dd hh:mm:ss ;时间
 SendInput %CurrentDateTime%
 return
 
-:*:-dz1::{Text}广东省深圳市龙华区民治街道樟坑二区29栋`n电话 18823720477`n姓名 郑先生
-
 :*:gerp::grep
 :*:grpe::grep
+:*:uspc::90001
+:*:depc::10117
+:*:espc::50481
+:*:ukpc::BR69EL
+:*:frpc::75019
+:*:itpc::63075
 
 :*:text1::
 (

@@ -15,11 +15,22 @@ CapsLock & c::
 return
 
 ; 远程窗口（web端服务器/粘贴板禁用场景下）中粘贴本地粘贴板中的数据，使用频率：一般
-CapsLock & p::
-	SendInput %clipboard%
-return
+;CapsLock & p::
+;	SendInput %clipboard%
+;return
 
 
 CapsLock & w::
 	SendInput, {2} 
+return
+
+
+; 键盘宏 粘贴->tab 循环
+CapsLock & p::
+	Loop, 20
+	{
+		SendInput, +{insert}{tab}
+		ClipWait, 1
+		Sleep, 100
+	}
 return
